@@ -1,5 +1,5 @@
-# Graphite — website for party promotion
+# Audit analitica
 
 ```bash
-git clone https://github.com/mbozhik/graphite2.git && cd graphite2 && pnpm i && code .
+git clone https://github.com/mbozhik/audit.git && cd audit && pnpm i && code .
 ```
