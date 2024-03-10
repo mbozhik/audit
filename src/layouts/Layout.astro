@@ -1,6 +1,8 @@
 ---
 import {ViewTransitions} from 'astro:transitions'
 
+import Header from '../components/Header.astro'
+
 interface Props {
   page_name?: string
   description: string
@@ -41,7 +43,8 @@ const siteName = 'AUDIT ANALITICA'
     <!-- <meta property="twitter:image" content="/seo.png" /> -->
     <ViewTransitions />
   </head>
-  <body class="">
+  <body class="prose !text-white bg-black">
+    <Header />
     <main class="">
       <slot />
     </main>
