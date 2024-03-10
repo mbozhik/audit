@@ -1,15 +1,65 @@
-<header class="flex justify-around w-[90%] mx-auto items-center text-lg mt-5 font-medium">
-  <a href="/consultation">Запись на консультацию</a>
-  <a href="/about">О нас</a>
+---
+const navLinks = {
+  1: {
+    href: '/',
+    text: 'Главная',
+  },
+  2: {
+    href: '#about',
+    text: 'О нас',
+  },
+  3: {
+    href: '#pricing',
+    text: 'Контакты',
+  },
+}
+---
 
-  <a href="/" class="font-mono text-5xl font-black">Аналитик</a>
+<header class="fixed left-[50%] top-7 flex sm:flex-col w-fit -translate-x-[50%] items-center gap-6 rounded-lg border-[1px] border-neutral-700 bg-neutral-900 p-2 text-base text-neutral-500">
+  <svg class="ml-2 sm:ml-0 fill-neutral-50 hover:fill-custom-yellow duration-200" width="24" height="auto" viewBox="0 0 50 39" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <path d="M16.4992 2H37.5808L22.0816 24.9729H1L16.4992 2Z" stop-color="#000000"></path>
+    <path d="M17.4224 27.102L11.4192 36H33.5008L49 13.0271H32.7024L23.2064 27.102H17.4224Z" stop-color="#000000"></path>
+  </svg>
 
-  <a href="tel:+74952528857">+7 (495) 252-88-57</a>
-  <a href="mailto:profanalitik@gmail.com">profanalitik@gmail.com</a>
+  {
+    Object.values(navLinks).map(({href, text}) => (
+      <a {href} rel="nofollow" class="block overflow-hidden sm:hidden">
+        <div class="h-[20px] hover:translate-y-[-20px] duration-300">
+          <span class="flex h-[20px] items-center">{text}</span>
+          <span class="flex h-[20px] items-center text-custom-yellow">{text}</span>
+        </div>
+      </a>
+    ))
+  }
+
+  <button>Записаться</button>
 </header>
 
 <style>
-  a:hover {
-    @apply underline duration-200;
+  button {
+    @apply sm:hidden relative z-0 flex items-center gap-2 overflow-hidden whitespace-nowrap rounded-lg border-[1px]
+         border-neutral-700 px-4 py-1.5 font-medium
+         text-neutral-300 transition-all duration-300;
+  }
+
+  button:before {
+    @apply absolute inset-0
+           -z-10 translate-y-[200%]
+           scale-[2.5]
+           rounded-[100%] bg-custom-yellow
+           transition-transform duration-1000
+           content-[""];
+  }
+
+  button:hover {
+    @apply scale-105 border-custom-yellow text-neutral-900;
+  }
+
+  button:hover:before {
+    @apply translate-y-[0%];
+  }
+
+  button:active {
+    @apply scale-100;
   }
 </style>

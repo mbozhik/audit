@@ -11,7 +11,7 @@ module.exports = {
       },
       colors: {
         custom: {
-          pink: '#FB6BB3',
+          yellow: '#ffe914',
         },
       },
     },
