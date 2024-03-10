@@ -8,10 +8,24 @@ import HeroSlider from './HeroSlider'
 
 <style is:global>
   .swiper-slide {
-    @apply opacity-50;
+    @apply text-neutral-500;
   }
 
   .swiper-slide-active {
-    @apply opacity-100 duration-300 text-5xl;
+    @apply px-5 w-fit mx-auto rounded-lg text-5xl text-white border-[1px] border-neutral-700 bg-neutral-900;
+  }
+
+  .swiper-slide-active:hover {
+    @apply text-custom-yellow duration-200;
+  }
+
+  .swiper-slide-active:before {
+    content: 'Подробнее';
+    @apply absolute right-[-7.25vw] px-2 py-1 rounded normal-case text-lg text-white;
+  }
+
+  .swiper-slide-active:hover::before {
+    content: 'Открыть страницу';
+    @apply right-[-10.5vw] text-custom-yellow;
   }
 </style>

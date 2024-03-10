@@ -4,35 +4,49 @@ import {useSwiperSlide} from 'swiper/react'
 import 'swiper/css'
 import 'swiper/css/navigation'
 
-import {Autoplay, Mousewheel} from 'swiper/modules'
+import {Autoplay} from 'swiper/modules'
+
+export const slideContent = {
+  1: {
+    text: 'Для малых компаний',
+    link: '/services/for-small-companies/',
+  },
+  2: {
+    text: 'Бухгалтерский учет',
+    link: '/services/accounting/',
+  },
+  3: {
+    text: 'Оптимизация налогов',
+    link: '/services/tax-optimization/',
+  },
+  4: {
+    text: 'Аналитика предприятия',
+    link: '/services/enterprise-analytics/',
+  },
+  5: {
+    text: 'Консалтинг',
+    link: '/services/consulting/',
+  },
+}
 
 export default function HeroSlider() {
-  const slideContent = {
-    1: ['Для малых компаний'],
-    2: ['Бухгалтерский учет'],
-    3: ['Оптимизация налогов'],
-    4: ['Аналитика предприятия'],
-    5: ['Консалтинг'],
-  }
-
   return (
     <div className="w-full h-[25vh] pt-5">
       <Swiper
         loop={true}
         slidesPerView={3}
         autoplay={{
-          delay: 1500,
+          delay: 2500,
           disableOnInteraction: false,
         }}
         centeredSlides={true}
         direction={'vertical'}
-        mousewheel={true}
-        modules={[Autoplay, Mousewheel]}
+        modules={[Autoplay]}
         className="w-full h-full"
       >
-        {Object.entries(slideContent).map(([key, value]) => (
-          <SwiperSlide className="!grid text-2xl text-center uppercase place-items-center" key={key}>
-            {value}
+        {Object.entries(slideContent).map(([key, content]) => (
+          <SwiperSlide className="!grid text-3xl text-center uppercase place-items-center" key={key}>
+            <a href={content.link}>{content.text}</a>
           </SwiperSlide>
         ))}
       </Swiper>
