@@ -1,0 +1,17 @@
+---
+import HeroSlider from './HeroSlider'
+---
+
+<section data-section="index-hero" class="grid w-screen h-screen place-items-center">
+  <HeroSlider client:load />
+</section>
+
+<style is:global>
+  .swiper-slide {
+    @apply opacity-50;
+  }
+
+  .swiper-slide-active {
+    @apply opacity-100 duration-300 text-5xl;
+  }
+</style>
