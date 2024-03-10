@@ -6,6 +6,9 @@ module.exports = {
   content: ['./src/**/*.{astro,html,js,jsx,md,mdx,svelte,ts,tsx,vue}'],
   theme: {
     extend: {
+      fontFamily: {
+        sans: ['SuisseIntl', 'ui-sans-serif', 'system-ui', '-apple-system', 'Roboto', 'sans-serif'],
+      },
       colors: {
         custom: {
           pink: '#FB6BB3',

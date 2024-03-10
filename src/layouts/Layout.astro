@@ -1,6 +1,7 @@
 ---
 import {ViewTransitions} from 'astro:transitions'
 
+import Fonts from '../layouts/Fonts.astro'
 import Header from '../components/Header.astro'
 
 interface Props {
@@ -42,8 +43,9 @@ const siteName = 'AUDIT ANALITICA'
     <meta property="twitter:description" content={description} />
     <!-- <meta property="twitter:image" content="/seo.png" /> -->
     <ViewTransitions />
+    <Fonts />
   </head>
-  <body class="prose !text-white bg-black">
+  <body class="font-sans text-white bg-black">
     <Header />
     <main class="">
       <slot />
