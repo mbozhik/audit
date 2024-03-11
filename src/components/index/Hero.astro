@@ -1,9 +1,26 @@
 ---
 import HeroSlider from './HeroSlider'
+import {slideContent} from './HeroSlider'
+
+import {grayBody} from '../Header.astro'
 ---
 
 <section data-section="index-hero" class="grid w-screen h-screen place-items-center">
   <HeroSlider client:load />
+
+  <div class="absolute w-full space-y-7 bottom-11">
+    <p class="text-center text-neutral-500">Мы поможем Вам предотвратить ошибки в налоговой и бухгалтерской сфере, оптимизировать налоговые и имущественные риски. <br /> Обратившись к нам, вы получите профессиональную помощь в развитии и совершенствовании Вашего бизнеса.</p>
+
+    <div class="flex justify-center gap-4">
+      {
+        Object.entries(slideContent).map(([key, content]) => (
+          <a class={`text-white px-2 py-1 text-lg rounded hover:text-custom-yellow duration-200 ${grayBody}`} href={content.link}>
+            {content.text}
+          </a>
+        ))
+      }
+    </div>
+  </div>
 </section>
 
 <style is:global>
