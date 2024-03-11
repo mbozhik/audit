@@ -1,0 +1,31 @@
+---
+import {grayBody} from '../Header.astro'
+
+const infoContent = {
+  about: {
+    title: 'Наши клиенты',
+    text: 'За 16 лет наша опытная команда успешно сотрудничала с широким кругом компаний, представляющих различные отрасли и сферы бизнеса. Мы специализируемся на аналитике бизнеса и ценим доверие, которое нам оказывают наши заказчики, и стремимся к долгосрочным и взаимовыгодным отношениям, обеспечивая высококачественные и индивидуально адаптированные решения для каждого клиента.',
+  },
+  clients: {
+    title: 'Наши клиенты',
+    images: ['/license/front.webp', '/license/back.webp'],
+    imagesStyle: 'w-[35%] border-4 border-white saturate-0 hover:saturate-100 hover:scale-[2.0] hover:z-50 duration-300',
+  },
+}
+---
+
+<section data-section="index-info" class="mt-[20vh] grid grid-cols-2 justify-between w-[85%] mx-auto">
+  <div id="about">
+    <h1 class={`px-5 py-2 w-fit mx-auto text-5xl sm:text-2xl text-center ${grayBody}`}>{infoContent.about.title}</h1>
+
+    <div class="mt-[20%] mx-auto sm:space-y-10 text-center sm:text-sm sm:w-[85%] sm:ml-5 sm:text-left"><p class="text-lg">{infoContent.about.text}</p></div>
+  </div>
+
+  <div id="license" class="space-y-10">
+    <h1 class={`px-5 py-2 w-fit mx-auto text-5xl sm:text-2xl text-center ${grayBody}`}>{infoContent.clients.title}</h1>
+
+    <div class="flex justify-center">
+      {infoContent.clients.images.map((src, index) => <img id={`image${index}`} class={`${infoContent.clients.imagesStyle} ${index === 0 && 'translate-x-10 z-10'} ${index === 1 && '-translate-x-5 translate-y-14'}`} src={src} />)}
+    </div>
+  </div>
+</section>
