@@ -45,10 +45,28 @@ const siteName = 'AUDIT ANALITICA'
     <ViewTransitions />
     <Fonts />
   </head>
-  <body class="font-sans text-white bg-black">
+  <body class="relative font-sans text-white bg-black">
     <Header />
     <main>
+      <section class="absolute inset-0 w-screen h-screen">
+        <div class="cell-background"></div>
+      </section>
+
       <slot />
     </main>
+
+    <style>
+      .cell-background {
+        @apply absolute inset-0 opacity-40 z-[-1] rotate-180;
+
+        background: linear-gradient(180deg, #606060 25.89%, rgba(96, 96, 100, 0) 100%);
+        background-repeat: repeat;
+        background-blend-mode: luminosity;
+        -webkit-mask-image: url(/cell.svg);
+        mask-image: url(/cell.svg);
+        -webkit-mask-position: top center;
+        mask-position: top center;
+      }
+    </style>
   </body>
 </html>
