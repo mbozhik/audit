@@ -45,10 +45,10 @@ const siteName = 'AUDIT ANALITICA'
     <ViewTransitions />
     <Fonts />
   </head>
-  <body class="relative font-sans text-white bg-black">
+  <body class="relative overflow-x-hidden font-sans text-white bg-black">
     <Header />
     <main>
-      <section class="absolute inset-0 w-screen h-screen">
+      <section class="fixed inset-0 w-screen h-screen">
         <div class="cell-background"></div>
       </section>
 
@@ -66,6 +66,17 @@ const siteName = 'AUDIT ANALITICA'
         mask-image: url(/cell.svg);
         -webkit-mask-position: top center;
         mask-position: top center;
+      }
+
+      body::-webkit-scrollbar {
+        position: absolute;
+        width: 17px;
+      }
+      body::-webkit-scrollbar-track {
+        @apply bg-[#111];
+      }
+      body::-webkit-scrollbar-thumb {
+        @apply bg-neutral-700;
       }
     </style>
   </body>
