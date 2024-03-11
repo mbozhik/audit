@@ -1,0 +1,94 @@
+---
+import {grayBody} from '../Header.astro'
+
+const contactContent = {
+  title: 'Запись на консультацию',
+  text: 'Опишите вашу компанию, напишите свои проблемы, и мы с Вами свяжемся, проведем анализ и рассмотрим варианты сотрудничества.',
+}
+---
+
+<section data-section="index-contact" id="contact" class="mt-[25vh] mb-[30vh] sm:mt-[10vh] space-y-10 sm:space-y-7">
+  <div class="flex flex-col gap-5">
+    <h1 class={`px-5 py-2 w-fit mx-auto sm:mx-0 sm:ml-5 text-5xl sm:text-2xl text-center ${grayBody}`}>{contactContent.title}</h1>
+    <p class="w-[30%] mx-auto text-center sm:text-sm sm:mx-5 text-neutral-500">Опишите вашу компанию, напишите свои проблемы, и мы с Вами свяжемся, проведем анализ и рассмотрим варианты сотрудничества.</p>
+  </div>
+
+  <form id="FORM" class="flex flex-col items-center w-full">
+    <input id="INPUT_EMAIL" class="" placeholder="E-mail" type="text" name="email" />
+    <input id="INPUT_COMPANY" class="" placeholder="Компания" type="text" name="company" />
+    <textarea id="INPUT_DESCRIPTION" class="" placeholder="Описание компании" name="description" cols="30" rows="10"></textarea>
+
+    <div id="FORM_BTN" class="">Отправить</div>
+  </form>
+</section>
+
+<script>
+  import {apiKey, baseId} from '../../data/airtbleApi.ts'
+  const tableName = 'Form'
+
+  interface FormData {
+    Email: string
+    Company: string
+    Description: string
+  }
+
+  const form = document.querySelector('#FORM') as HTMLFormElement
+
+  const submitData = async (event: Event) => {
+    event.preventDefault()
+
+    const emailInput = document.getElementById('INPUT_EMAIL') as HTMLInputElement
+    const companyInput = document.getElementById('INPUT_COMPANY') as HTMLInputElement
+    const descriptionInput = document.getElementById('INPUT_DESCRIPTION') as HTMLInputElement
+
+    const data: {
+      fields: FormData
+    } = {
+      fields: {
+        Email: emailInput.value,
+        Company: companyInput.value,
+        Description: descriptionInput.value,
+      },
+    }
+
+    const url = `https://api.airtable.com/v0/${baseId}/${tableName}`
+    const headers = {
+      Authorization: `Bearer ${apiKey}`,
+      'Content-Type': 'application/json',
+    }
+
+    try {
+      const response = await fetch(url, {
+        method: 'POST',
+        headers: headers,
+        body: JSON.stringify(data),
+      })
+
+      if (!response.ok) {
+        throw new Error('Failed to submit data')
+      }
+
+      const record = await response.json()
+      console.log(`Record created: ${record.id} | Record content: ${JSON.stringify(data)}`)
+    } catch (err) {
+      console.error('Url:', url)
+      console.error('Error:', err)
+      console.error('Response:', err.response)
+    }
+
+    form.reset()
+  }
+
+  form?.addEventListener('keypress', function (event: KeyboardEvent) {
+    const key = event.key
+    if (key === 'Enter') {
+      submitData(event)
+    }
+  })
+
+  const formBtn = document.querySelector('#FORM_BTN')
+
+  formBtn?.addEventListener('click', function (event) {
+    submitData(event)
+  })
+</script>

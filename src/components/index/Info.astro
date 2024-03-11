@@ -9,7 +9,7 @@ const infoContent = {
   clients: {
     title: 'Лицензия',
     images: ['/license/front.webp', '/license/back.webp'],
-    imagesStyle: 'w-[35%] sm:w-[48%] border-4 border-white saturate-0 hover:saturate-100 hover:scale-[2.0] xl:hover:scale-[1.5] hover:z-50 duration-300',
+    imagesStyle: 'w-[35%] sm:w-[48%] border-4 border-white saturate-0 hover:saturate-100 hover:scale-[1.5] hover:z-50 duration-500',
   },
 }
 ---
@@ -18,7 +18,7 @@ const infoContent = {
   <div id="about">
     <h1 class={`px-5 py-2 w-fit mx-auto sm:mx-0 sm:ml-5 text-5xl sm:text-2xl text-center ${grayBody}`}>{infoContent.about.title}</h1>
 
-    <div class="sm:mt-7 mx-auto sm:space-y-10 text-center sm:text-sm sm:w-[85%] sm:ml-5 sm:text-left mt-[19%] space-y-5">{infoContent.about.text.map((text) => <p class="">{text}</p>)}</div>
+    <div class="sm:mt-7 mx-auto sm:space-y-10 text-center text-lg sm:text-sm sm:w-[85%] sm:ml-5 sm:text-left mt-[19%] space-y-5">{infoContent.about.text.map((text) => <p class="">{text}</p>)}</div>
   </div>
 
   <div id="license" class="space-y-10 sm:space-y-7 sm:mt-[10vh]">
