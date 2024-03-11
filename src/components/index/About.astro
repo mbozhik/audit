@@ -7,8 +7,8 @@ const aboutContent = {
 }
 ---
 
-<section data-section="index-hero" class="mt-[15vh]">
-  <h1 class="px-5 py-2 w-fit mx-auto rounded-lg text-5xl text-white border-[1px] border-neutral-700 bg-neutral-900">{aboutContent.title}</h1>
+<section data-section="index-about" id="about" class="mt-[15vh]">
+  <h1 class="px-5 py-2 w-fit mx-auto rounded-lg text-5xl sm:text-2xl text-white border-[1px] border-neutral-700 bg-neutral-900 text-center">{aboutContent.title}</h1>
 
-  <div class="w-1/2 mx-auto mt-10 space-y-5">{aboutContent.text.map((text) => <p class="text-lg">{text}</p>)}</div>
+  <div class="w-1/2 mx-auto mt-10 space-y-5 sm:space-y-10 text-center sm:text-sm sm:w-[85%] sm:ml-5 sm:text-left">{aboutContent.text.map((text) => <p class="text-lg">{text}</p>)}</div>
 </section>
