@@ -31,7 +31,7 @@ export const slideContent = {
 
 export default function HeroSlider() {
   return (
-    <div className="w-full h-[25vh] pt-5">
+    <div className="w-full h-[25vh] pt-5 sm:mt-[40vh]">
       <Swiper
         loop={true}
         slidesPerView={3}
@@ -45,7 +45,7 @@ export default function HeroSlider() {
         className="w-full h-full"
       >
         {Object.entries(slideContent).map(([key, content]) => (
-          <SwiperSlide className="!grid text-3xl text-center uppercase place-items-center" key={key}>
+          <SwiperSlide className="!grid text-3xl sm:text-base text-center uppercase place-items-center" key={key}>
             <a href={content.link}>{content.text}</a>
           </SwiperSlide>
         ))}

@@ -4,10 +4,14 @@ import Layout from '../layouts/Layout.astro'
 import Hero from '../components/index/Hero.astro'
 import About from '../components/index/About.astro'
 import Info from '../components/index/Info.astro'
+
+import HeroLinks from '../components/index/HeroLinks.astro'
 ---
 
 <Layout description="">
   <Hero />
+  <HeroLinks classes="hidden sm:flex sm:mt-10" />
+
   <About />
   <Info />
 </Layout>

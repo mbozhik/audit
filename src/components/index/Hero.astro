@@ -1,25 +1,15 @@
 ---
 import HeroSlider from './HeroSlider'
-import {slideContent} from './HeroSlider'
-
-import {grayBody} from '../Header.astro'
+import HeroLinks from './HeroLinks.astro'
 ---
 
-<section data-section="index-hero" class="relative grid w-screen h-screen place-items-center">
+<section data-section="index-hero" class="relative grid w-screen h-screen sm:h-auto place-items-center">
   <HeroSlider client:load />
 
-  <div class="absolute w-full space-y-7 bottom-11">
-    <p class="text-center text-neutral-500">Мы поможем Вам предотвратить ошибки в налоговой и бухгалтерской сфере, оптимизировать налоговые и имущественные риски. <br /> Обратившись к нам, вы получите профессиональную помощь в развитии и совершенствовании Вашего бизнеса.</p>
+  <div class="absolute w-full sm:relative space-y-7 bottom-11 sm:bottom-0 sm:mt-[15vh]">
+    <p class="text-center sm:text-sm sm:mx-5 text-neutral-500">Мы поможем Вам предотвратить ошибки в налоговой и бухгалтерской сфере, оптимизировать налоговые и имущественные риски. <br class="sm:hidden" /> Обратившись к нам, вы получите профессиональную помощь в развитии и совершенствовании Вашего бизнеса.</p>
 
-    <div class="flex justify-center gap-4">
-      {
-        Object.entries(slideContent).map(([key, content]) => (
-          <a class={`text-white px-2 py-1 text-lg rounded hover:text-custom-yellow duration-200 ${grayBody}`} href={content.link}>
-            {content.text}
-          </a>
-        ))
-      }
-    </div>
+    <HeroLinks classes="sm:hidden" />
   </div>
 </section>
 
@@ -29,7 +19,7 @@ import {grayBody} from '../Header.astro'
   }
 
   .swiper-slide-active {
-    @apply px-5 w-fit mx-auto rounded-lg text-5xl text-white border-[1px] border-neutral-700 bg-neutral-900;
+    @apply px-5 w-fit mx-auto rounded-lg text-5xl sm:text-xl text-white border-[1px] border-neutral-700 bg-neutral-900;
   }
 
   .swiper-slide-active:hover {
@@ -38,11 +28,11 @@ import {grayBody} from '../Header.astro'
 
   .swiper-slide-active:before {
     content: 'Подробнее';
-    @apply absolute right-[-7.25vw] px-2 py-1 rounded normal-case text-lg text-white;
+    @apply sm:hidden absolute right-[-7.25vw] xl:right-[-10vw] px-2 py-1 rounded normal-case text-lg text-white;
   }
 
   .swiper-slide-active:hover::before {
     content: 'Открыть страницу';
-    @apply right-[-10.5vw] text-custom-yellow;
+    @apply right-[-10.5vw] xl:right-[-14.5vw] text-custom-yellow;
   }
 </style>
