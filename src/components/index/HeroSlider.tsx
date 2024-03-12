@@ -45,7 +45,7 @@ export default function HeroSlider() {
         className="w-full h-full"
       >
         {Object.entries(slideContent).map(([key, content]) => (
-          <SwiperSlide className="!grid text-3xl sm:text-base text-center uppercase place-items-center" key={key}>
+          <SwiperSlide className="!grid text-3xl xl:text-2xl sm:text-base text-center uppercase place-items-center" key={key}>
             <a href={content.link}>{content.text}</a>
           </SwiperSlide>
         ))}

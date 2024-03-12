@@ -8,10 +8,10 @@ const navLinks = {
     href: '#about',
     text: 'О нас',
   },
-  3: {
-    href: '#pricing',
-    text: 'Контакты',
-  },
+  // 3: {
+  //   href: '#pricing',
+  //   text: 'Контакты',
+  // },
 }
 
 export const grayBody = 'rounded-lg border-[1px] border-neutral-700 bg-[#111] text-neutral-500 text-white'
@@ -39,7 +39,7 @@ const headerAdaptive = 'sm:top-4 sm:justify-between sm:w-[90%] sm:border-none sm
     ))
   }
 
-  <button class=`${grayBodyMobile}`>Записаться</button>
+  <button onclick="window.location.href = '/#contact'" class="${grayBodyMobile}">Записаться</button>
 </header>
 
 <style>
