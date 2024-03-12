@@ -1,0 +1,61 @@
+---
+import Layout from '../../layouts/Layout.astro'
+
+import {linksArray} from '../../components/index/HeroSlider'
+import {grayBody} from '../../components/Header.astro'
+
+const servicesPageContent = {
+  title: linksArray[2].text,
+  headings_classes: ['text-neutral-400 text-neutral-500 text-neutral-600 text-neutral-700 text-neutral-800 text-neutral-900'],
+  title_text: 'Мы предоставляем услуги по восстановлению бухгалтерского учета',
+  text: ['Бухгалтерский и налоговый учет требует восстановления в случае неполного или неправильного ведения учета или его полного отсутствия. Привести к этому могут различные причины: недостающие документы, регистры, договоры или некомпетентность бухгалтера.', 'Восстановление дает возможность привести учет в надлежащий вид, выявить все недостающие документы и проверить существующие, также проверить правильность отражения всех операций, начисление и уплату налогов, выявить все недоплаты и добровольно перечислить их в бюджет или наоборот выявить переплаты и учесть их при последующих перечислениях налогов.', 'Восстановление бухгалтерского и налогового учета может производиться в полном объеме или частично. ООО «Аналитик» проведет восстановление запущенного бухгалтерского и налогового учета любой сложности.'],
+}
+---
+
+<Layout description="">
+  <section data-section="index-hero" class="mt-[25vh]">
+    <div class="space-y-10">
+      <h1 transition:name={linksArray[2].link} class={`px-5 py-2 w-fit mx-auto sm:mx-0 sm:ml-5 text-5xl xl:text-4xl sm:text-2xl uppercase text-center sm:text-left sm:w-min ${grayBody}`}>{servicesPageContent.title}</h1>
+
+      <div id="headings_wrapper" class="space-y-5 text-3xl text-center uppercase sm:text-left sm:ml-5 xl:text-2xl xl:space-y-3 sm:text-base sm:w-[90%] text-neutral-500">
+        <p>Подготовка первичной документации</p>
+        <p>Составление бухгалтерской и налоговой отчетности</p>
+        <p>Оформление трудовых отношений с персоналом</p>
+        <p>Расчет налогов</p>
+        <p>Подготовка первичной документации</p>
+        <p>Формирование учетных регистрови</p>
+      </div>
+    </div>
+
+    <div class="my-[15vh] flex flex-col gap-10">
+      <h1 class="px-4 py-2 mx-auto text-xl text-center text-bold sm:text-left sm:text-base sm:mx-5 w-fit" class:list={grayBody}>{servicesPageContent.title_text}</h1>
+      <div class="w-[50%] sm:w-[90%] sm:text-left mx-auto text-lg text-center sm:text-sm sm:mx-5 space-y-5">{servicesPageContent.text.map((text) => <p>{text}</p>)}</div>
+    </div>
+  </section>
+</Layout>
+
+<style>
+  div#headings_wrapper p {
+    @apply duration-300;
+  }
+</style>
+
+<script>
+  function animateHeadings() {
+    const headings = document.querySelectorAll('#headings_wrapper p')
+    const classCount = headings.length
+    let currentClassIndex = 0
+
+    setInterval(() => {
+      headings.forEach((heading, index) => {
+        const classIndex = (currentClassIndex - index + classCount) % classCount
+        const classValue = (classIndex + 4) * 100
+        heading.className = `text-neutral-${classValue}`
+      })
+
+      currentClassIndex = (currentClassIndex + 1) % classCount
+    }, 1000)
+  }
+
+  document.addEventListener('DOMContentLoaded', animateHeadings)
+</script>
