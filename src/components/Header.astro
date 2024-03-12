@@ -30,6 +30,34 @@ export const grayBody = 'rounded-lg border-[1px] border-neutral-700 bg-[#111] te
   <button onclick="window.location.href = '/#contact'" class="">Записаться</button>
 </header>
 
+<script>
+  const header = document.querySelector('header')
+  let scroll_time
+  let scroll_pos = 0
+
+  function hideHeader() {
+    clearTimeout(scroll_time)
+    const current_scroll = window.pageYOffset || document.documentElement.scrollTop
+
+    if (header && current_scroll >= header.offsetHeight) {
+      const shouldAddClass = current_scroll > scroll_pos
+      header.classList.toggle('-translate-y-20', shouldAddClass)
+    }
+
+    scroll_time = setTimeout(() => {
+      scroll_pos = window.pageYOffset || document.documentElement.scrollTop
+    }, 100)
+  }
+
+  function isMobileDevice() {
+    return /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)
+  }
+
+  if (isMobileDevice()) {
+    window.addEventListener('scroll', hideHeader)
+  }
+</script>
+
 <style>
   button {
     @apply relative z-0 flex items-center gap-2 overflow-hidden whitespace-nowrap rounded-lg border-[1px]
