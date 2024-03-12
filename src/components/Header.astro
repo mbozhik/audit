@@ -1,17 +1,13 @@
 ---
 const navLinks = {
   1: {
-    href: '/',
-    text: 'Главная',
-  },
-  2: {
     href: '#about',
     text: 'О нас',
   },
-  // 3: {
-  //   href: '#pricing',
-  //   text: 'Контакты',
-  // },
+  2: {
+    href: '/contacts/',
+    text: 'Контакты',
+  },
 }
 
 export const grayBody = 'rounded-lg border-[1px] border-neutral-700 bg-[#111] text-neutral-500 text-white'
@@ -21,12 +17,7 @@ const headerAdaptive = 'sm:top-4 sm:justify-between sm:w-[90%] sm:border-none sm
 ---
 
 <header class=`z-50 fixed left-[50%] top-12 flex w-fit -translate-x-[50%] items-center gap-6 p-2 text-base ${grayBody} ${headerAdaptive}`>
-  <div class=`ml-2 sm:ml-0 p-2 ${grayBodyMobile}`>
-    <svg class="duration-200 fill-neutral-50 hover:fill-custom-yellow" width="24" height="auto" viewBox="0 0 50 39" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <path d="M16.4992 2H37.5808L22.0816 24.9729H1L16.4992 2Z" stop-color="#000000"></path>
-      <path d="M17.4224 27.102L11.4192 36H33.5008L49 13.0271H32.7024L23.2064 27.102H17.4224Z" stop-color="#000000"></path>
-    </svg>
-  </div>
+  <a href="/" class="mt-[2px] ml-2 text-lg font-bold uppercase sm:ml-0 text-neutral-500 hover:text-custom-yellow duration-200" class:list={grayBodyMobile}>Аналитик</a>
 
   {
     Object.values(navLinks).map(({href, text}) => (
