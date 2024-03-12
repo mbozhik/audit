@@ -30,7 +30,7 @@ export const linksArray = {
 
 export default function HeroSlider() {
   return (
-    <div className="w-full h-[25vh] pt-5 sm:mt-[40vh]">
+    <div className="w-full h-[25vh] -mt-7 sm:mt-[40vh]">
       <Swiper
         loop={true}
         slidesPerView={3}
@@ -38,6 +38,7 @@ export default function HeroSlider() {
           delay: 2500,
           disableOnInteraction: false,
         }}
+        speed={700}
         centeredSlides={true}
         direction={'vertical'}
         modules={[Autoplay]}
