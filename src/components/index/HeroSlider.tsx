@@ -1,12 +1,11 @@
 import {Swiper, SwiperSlide} from 'swiper/react'
-import {useSwiperSlide} from 'swiper/react'
 
 import 'swiper/css'
 import 'swiper/css/navigation'
 
 import {Autoplay} from 'swiper/modules'
 
-export const slideContent = {
+export const linksArray = {
   1: {
     text: 'Для малых компаний',
     link: '/services/for-small-companies/',
@@ -44,7 +43,7 @@ export default function HeroSlider() {
         modules={[Autoplay]}
         className="w-full h-full"
       >
-        {Object.entries(slideContent).map(([key, content]) => (
+        {Object.entries(linksArray).map(([key, content]) => (
           <SwiperSlide className="!grid text-3xl xl:text-2xl sm:text-base text-center uppercase place-items-center" key={key}>
             <a href={content.link}>{content.text}</a>
           </SwiperSlide>
