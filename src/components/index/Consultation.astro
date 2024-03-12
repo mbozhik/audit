@@ -7,16 +7,16 @@ const {classes} = Astro.props
 
 import {grayBody} from '../Header.astro'
 
-const contactContent = {
+const consultationContent = {
   title: 'Запись на консультацию',
   text: 'Опишите вашу компанию, напишите свои проблемы, и мы с Вами свяжемся, проведем анализ и рассмотрим варианты сотрудничества.',
 }
 ---
 
-<section data-section="index-contact" id="contact" class="space-y-10" class:list={classes}>
+<section data-section="index-consultation" id="consultation" class="space-y-10" class:list={classes}>
   <div class="flex flex-col gap-5">
-    <h1 class={`px-5 py-2 w-fit mx-auto sm:mx-0 sm:ml-5 text-5xl xl:text-4xl sm:text-2xl uppercase text-center sm:text-left sm:w-min ${grayBody}`}>{contactContent.title}</h1>
-    <p class="w-[30%] sm:w-[90%] sm:text-left mx-auto text-center sm:text-sm sm:mx-5 text-neutral-500">{contactContent.text}</p>
+    <h1 class={`px-5 py-2 w-fit mx-auto sm:mx-0 sm:ml-5 text-5xl xl:text-4xl sm:text-2xl uppercase text-center sm:text-left sm:w-min ${grayBody}`}>{consultationContent.title}</h1>
+    <p class="w-[30%] sm:w-[90%] sm:text-left mx-auto text-center sm:text-sm sm:mx-5 text-neutral-500">{consultationContent.text}</p>
   </div>
 
   <form id="FORM" class="flex flex-col gap-3 items-center w-[17%] xl:w-[30%] sm:w-[88%] mx-auto">
@@ -30,7 +30,7 @@ const contactContent = {
 </section>
 
 <script>
-  import {apiKey, baseId} from '../../data/airtbleApi.ts'
+  import {apiKey, baseId} from '../../data/airtbleApi'
   const tableName = 'Form'
 
   interface FormData {
