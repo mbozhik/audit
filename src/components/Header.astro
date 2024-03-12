@@ -11,13 +11,10 @@ const navLinks = {
 }
 
 export const grayBody = 'rounded-lg border-[1px] border-neutral-700 bg-[#111] text-neutral-500 text-white'
-const grayBodyMobile = 'sm:rounded-lg sm:border-[1px] sm:border-neutral-700 sm:bg-[#111] sm:text-neutral-500'
-
-const headerAdaptive = 'sm:top-4 sm:justify-between sm:w-[90%] sm:border-none sm:bg-transparent sm:p-0'
 ---
 
-<header class=`z-50 fixed left-[50%] top-12 flex w-fit -translate-x-[50%] items-center gap-6 p-2 text-base ${grayBody} ${headerAdaptive}`>
-  <a href="/" class="mt-[2px] ml-2 text-lg font-bold uppercase sm:ml-0 text-neutral-500 hover:text-custom-yellow duration-200" class:list={grayBodyMobile}>Аналитик</a>
+<header class="z-50 fixed left-[50%] top-12 flex w-fit -translate-x-[50%] items-center gap-6 p-2 text-base duration-300 sm:top-4 sm:justify-between sm:w-[90%]" class:list={grayBody}>
+  <a href="/" class="mt-[2px] ml-2 text-lg font-bold uppercase sm:ml-0 text-neutral-500 hover:text-custom-yellow duration-200 sm:px-3 sm:py-1 sm:text-white">Аналитик</a>
 
   {
     Object.values(navLinks).map(({href, text}) => (
@@ -30,14 +27,14 @@ const headerAdaptive = 'sm:top-4 sm:justify-between sm:w-[90%] sm:border-none sm
     ))
   }
 
-  <button onclick="window.location.href = '/#contact'" class="${grayBodyMobile}">Записаться</button>
+  <button onclick="window.location.href = '/#contact'" class="">Записаться</button>
 </header>
 
 <style>
   button {
     @apply relative z-0 flex items-center gap-2 overflow-hidden whitespace-nowrap rounded-lg border-[1px]
          border-neutral-700 px-4 py-1.5 font-medium
-         text-neutral-300 transition-all duration-300;
+         text-neutral-300  transition-all duration-300;
   }
 
   button:before {
