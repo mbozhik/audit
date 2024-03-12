@@ -13,7 +13,7 @@ const {classes} = Astro.props
 <div class=`flex justify-center gap-4 sm:flex-wrap ${classes}`>
   {
     Object.entries(slideContent).map(([key, content]) => (
-      <a class={`px-2 py-1 sm:p-2 text-lg sm:text-sm rounded hover:text-custom-yellow duration-200 ${grayBody}`} href={content.link}>
+      <a transition:name={content.link} class={`px-2 py-1 sm:p-2 text-lg sm:text-sm rounded hover:text-custom-yellow duration-200 ${grayBody}`} href={content.link}>
         {content.text}
       </a>
     ))
