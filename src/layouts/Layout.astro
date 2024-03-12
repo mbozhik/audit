@@ -9,9 +9,10 @@ interface Props {
   description: string
   page_path?: string
   keywords?: string
+  noScroll?: boolean
 }
 
-const {page_name = '', description, page_path = '', keywords = ''} = Astro.props
+const {page_name = '', description, page_path = '', keywords = '', noScroll} = Astro.props
 
 const siteName = 'AUDIT ANALITICA'
 ---
@@ -46,7 +47,7 @@ const siteName = 'AUDIT ANALITICA'
     <Fonts />
   </head>
   <body class="relative overflow-x-hidden font-sans text-white bg-black">
-    <Header />
+    <Header {noScroll} />
     <main>
       <section class="fixed inset-0 w-screen h-screen z-[-50]">
         <div class="cell-background"></div>
