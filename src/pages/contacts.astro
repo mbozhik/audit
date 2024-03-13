@@ -1,0 +1,38 @@
+---
+import Layout from '../layouts/Layout.astro'
+
+const contactContent = {
+  title: 'Контакты',
+  text: 'Свяжитесь с нами при возникновении вопросов по любому поводу.',
+  links: {
+    1: {
+      title: '+7 (495) 252-88-57',
+      href: 'tel:+74952528857',
+    },
+    2: {
+      title: 'info@audit-analitika.ru',
+      href: 'mailto:info@audit-analitika.ru',
+    },
+  },
+}
+---
+
+<Layout description="" noScroll={true}>
+  <div class="absolute right-0 w-[17px] bg-neutral-900 h-screen"></div>
+
+  <section data-section="index-contact" id="contact" class="relative grid w-screen h-screen place-items-center" class:list={'pr-[17px]'}>
+    <div class="space-y-5">
+      <p class="w-[75%] mx-auto text-center sm:text-sm text-neutral-500">{contactContent.text}</p>
+
+      <div class="flex items-center justify-center gap-3 sm:flex-col">
+        {
+          Object.values(contactContent.links).map(({title, href}) => (
+            <a target="_blank" {href} class="px-4 py-1.5 font-medium rounded-lg border-[1px] text-neutral-900 border-neutral-700 bg-neutral-300 hover:bg-custom-yellow duration-300">
+              {title}
+            </a>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+</Layout>

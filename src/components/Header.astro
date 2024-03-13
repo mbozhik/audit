@@ -1,32 +1,26 @@
 ---
+interface Props {
+  noScroll?: boolean
+}
+
+const {noScroll} = Astro.props
+
 const navLinks = {
   1: {
-    href: '/',
-    text: 'Главная',
-  },
-  2: {
-    href: '#about',
+    href: '/#about',
     text: 'О нас',
   },
-  // 3: {
-  //   href: '#pricing',
-  //   text: 'Контакты',
-  // },
+  2: {
+    href: '/contacts/',
+    text: 'Контакты',
+  },
 }
 
 export const grayBody = 'rounded-lg border-[1px] border-neutral-700 bg-[#111] text-neutral-500 text-white'
-const grayBodyMobile = 'sm:rounded-lg sm:border-[1px] sm:border-neutral-700 sm:bg-[#111] sm:text-neutral-500'
-
-const headerAdaptive = 'sm:top-4 sm:justify-between sm:w-[90%] sm:border-none sm:bg-transparent sm:p-0'
 ---
 
-<header class=`z-50 fixed left-[50%] top-12 flex w-fit -translate-x-[50%] items-center gap-6 p-2 text-base ${grayBody} ${headerAdaptive}`>
-  <div class=`ml-2 sm:ml-0 p-2 ${grayBodyMobile}`>
-    <svg class="duration-200 fill-neutral-50 hover:fill-custom-yellow" width="24" height="auto" viewBox="0 0 50 39" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <path d="M16.4992 2H37.5808L22.0816 24.9729H1L16.4992 2Z" stop-color="#000000"></path>
-      <path d="M17.4224 27.102L11.4192 36H33.5008L49 13.0271H32.7024L23.2064 27.102H17.4224Z" stop-color="#000000"></path>
-    </svg>
-  </div>
+<header class="z-50 fixed left-[50%] top-12 flex w-fit -translate-x-[50%] items-center gap-6 p-2 text-base duration-300 sm:top-4 sm:justify-between sm:w-[90%]" class:list={[grayBody, noScroll && '!left-[49.57%]']}>
+  <a href="/" class="mt-[2px] ml-2 text-lg font-bold uppercase sm:ml-0 text-neutral-500 hover:text-custom-yellow duration-200 sm:px-3 sm:py-1 sm:text-white">Аналитик</a>
 
   {
     Object.values(navLinks).map(({href, text}) => (
@@ -39,14 +33,42 @@ const headerAdaptive = 'sm:top-4 sm:justify-between sm:w-[90%] sm:border-none sm
     ))
   }
 
-  <button onclick="window.location.href = '/#contact'" class="${grayBodyMobile}">Записаться</button>
+  <button onclick="window.location.href = '/#consultation'" class="">Записаться</button>
 </header>
+
+<script>
+  const header = document.querySelector('header')
+  let scroll_time
+  let scroll_pos = 0
+
+  function hideHeader() {
+    clearTimeout(scroll_time)
+    const current_scroll = window.pageYOffset || document.documentElement.scrollTop
+
+    if (header && current_scroll >= header.offsetHeight) {
+      const shouldAddClass = current_scroll > scroll_pos
+      header.classList.toggle('-translate-y-20', shouldAddClass)
+    }
+
+    scroll_time = setTimeout(() => {
+      scroll_pos = window.pageYOffset || document.documentElement.scrollTop
+    }, 100)
+  }
+
+  function isMobileDevice() {
+    return /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)
+  }
+
+  if (isMobileDevice()) {
+    window.addEventListener('scroll', hideHeader)
+  }
+</script>
 
 <style>
   button {
     @apply relative z-0 flex items-center gap-2 overflow-hidden whitespace-nowrap rounded-lg border-[1px]
          border-neutral-700 px-4 py-1.5 font-medium
-         text-neutral-300 transition-all duration-300;
+         text-neutral-300  transition-all duration-300;
   }
 
   button:before {
