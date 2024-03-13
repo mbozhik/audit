@@ -6,26 +6,27 @@ import Header from '../components/Header.astro'
 
 interface Props {
   page_name?: string
-  description: string
+  description?: string
   page_path?: string
   keywords?: string
   noScroll?: boolean
 }
 
-const {page_name = '', description, page_path = '', keywords = '', noScroll} = Astro.props
+const {page_name = '', description = '', page_path = '', keywords = '', noScroll} = Astro.props
 
-const siteName = 'AUDIT ANALITICA'
+const siteName = 'АНАЛИТИК'
 ---
 
 <!doctype html>
 <html lang="ru" class="scroll-smooth">
   <head>
     <meta charset="UTF-8" />
+    <!-- <link rel="icon" type="image/x-icon" href="/favicon.ico" /> -->
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="generator" content={Astro.generator} />
 
-    <title>{siteName + page_name}</title>
+    <title>{page_name + siteName}</title>
     <meta name="title" content={siteName + page_name} />
     <meta name="description" content={description} />
     <meta name="keywords" content=`graphite, ${keywords}` />

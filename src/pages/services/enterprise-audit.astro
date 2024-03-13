@@ -32,7 +32,7 @@ const servicesPageContent = {
 }
 ---
 
-<Layout description="">
+<Layout page_name={`${servicesPageContent.title} — `}>
   <section data-section="index-hero" class="mt-[25vh] space-y-20">
     <div class="flex flex-col gap-5">
       <h1 transition:name={linksArray[3].link} class={`px-5 py-2 w-fit mx-auto sm:mx-0 sm:ml-5 text-3xl sm:text-xl uppercase text-center sm:text-left sm:w-min ${grayBody}`}>{servicesPageContent.title}</h1>
