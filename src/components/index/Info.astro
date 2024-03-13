@@ -16,13 +16,13 @@ const infoContent = {
 
 <section data-section="index-info" class="mt-[20vh] sm:mt-[10vh] grid grid-cols-2 sm:grid-cols-1 justify-between w-[85%] xl:w-[95%] mx-auto">
   <div id="about">
-    <h1 class={`px-5 py-2 w-fit mx-auto sm:mx-0 sm:ml-5 text-5xl sm:text-2xl text-center uppercase ${grayBody}`}>{infoContent.about.title}</h1>
+    <h1 class={`px-5 py-2 w-fit mx-auto sm:mx-0 sm:ml-5 text-3xl sm:text-xl text-center uppercase ${grayBody}`}>{infoContent.about.title}</h1>
 
     <div class="sm:mt-7 mx-auto sm:space-y-10 text-center text-lg sm:text-sm sm:w-[85%] sm:ml-5 sm:text-left mt-[19%] space-y-5">{infoContent.about.text.map((text) => <p class="">{text}</p>)}</div>
   </div>
 
   <div id="license" class="space-y-10 sm:space-y-7 sm:mt-[10vh]">
-    <h1 class={`px-5 py-2 w-fit mx-auto sm:mx-0 sm:ml-5 text-5xl sm:text-2xl text-center uppercase ${grayBody}`}>{infoContent.clients.title}</h1>
+    <h1 class={`px-5 py-2 w-fit mx-auto sm:mx-0 sm:ml-5 text-3xl sm:text-xl text-center uppercase ${grayBody}`}>{infoContent.clients.title}</h1>
 
     <div class="flex justify-center sm:justify-between sm:w-[90%] sm:mx-auto">
       {infoContent.clients.images.map((src, index) => <img id={`image${index}`} class={`${infoContent.clients.imagesStyle} ${index === 0 && 'translate-x-10 sm:translate-x-0 z-10'} ${index === 1 && '-translate-x-5 translate-y-7 sm:translate-x-0 sm:translate-y-0'}`} src={src} />)}
