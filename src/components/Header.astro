@@ -10,30 +10,42 @@ const navLinks = {
     href: '/#about',
     text: 'О нас',
   },
-  2: {
-    href: '/contacts/',
-    text: 'Контакты',
-  },
 }
+import {contactContent} from '../pages/contacts.astro'
 
 export const grayBody = 'rounded-lg border-[1px] border-neutral-700 bg-[#111] text-neutral-500 text-white'
 ---
 
-<header class="z-50 fixed left-[50%] top-12 flex w-fit -translate-x-[50%] items-center gap-6 p-2 text-base duration-300 sm:top-4 sm:justify-between sm:w-[90%]" class:list={[grayBody, noScroll && '!left-[49.57%]']}>
-  <a href="/" class="mt-[2px] ml-2 text-lg font-bold uppercase sm:ml-0 text-neutral-500 hover:text-custom-yellow duration-200 sm:px-3 sm:py-1 sm:text-white">Аналитик</a>
+<header class="z-50 flex sm:flex-col gap-5 sm:gap-2 fixed left-[50%] top-12 duration-300 sm:top-4 w-fit -translate-x-[50%]">
+  <div class="flex items-center gap-6 p-2 text-base sm:justify-between" class:list={[grayBody, noScroll && '!left-[49.57%]']}>
+    <a href="/" class="mt-[2px] ml-2 text-lg font-bold uppercase sm:ml-0 text-neutral-500 hover:text-custom-yellow duration-200 sm:px-3 sm:py-1 sm:text-white">Аналитик</a>
 
-  {
-    Object.values(navLinks).map(({href, text}) => (
-      <a {href} rel="nofollow" class="block overflow-hidden sm:hidden">
-        <div class="h-[20px] hover:translate-y-[-20px] duration-300">
-          <span class="flex h-[20px] items-center">{text}</span>
-          <span class="flex h-[20px] items-center text-custom-yellow">{text}</span>
-        </div>
-      </a>
-    ))
-  }
+    {
+      Object.values(navLinks).map(({href, text}) => (
+        <a {href} rel="nofollow" class="block overflow-hidden sm:hidden">
+          <div class="h-[20px] hover:translate-y-[-20px] duration-300">
+            <span class="flex h-[20px] items-center">{text}</span>
+            <span class="flex h-[20px] items-center text-custom-yellow">{text}</span>
+          </div>
+        </a>
+      ))
+    }
 
-  <button onclick="window.location.href = '/#consultation'" class="">Записаться</button>
+    <button onclick="window.location.href = '/#consultation'" class="">Записаться</button>
+  </div>
+
+  <div class="flex items-center gap-6 py-2 px-3.5 text-base sm:text-xs duration-300 sm:top-4 sm:justify-between" class:list={[grayBody, noScroll && '!left-[49.57%]']}>
+    {
+      Object.values(contactContent.links).map(({title, href}) => (
+        <a {href} rel="nofollow" class="block overflow-hidden">
+          <div class="h-[20px] sm:h-auto hover:translate-y-[-20px] duration-300">
+            <span class="flex h-[20px] items-center sm:items-baseline sm:h-auto text-neutral-500 ">{title}</span>
+            <span class="sm:hidden flex h-[20px] items-center text-custom-yellow">{title}</span>
+          </div>
+        </a>
+      ))
+    }
+  </div>
 </header>
 
 <script>
@@ -47,7 +59,8 @@ export const grayBody = 'rounded-lg border-[1px] border-neutral-700 bg-[#111] te
 
     if (header && current_scroll >= header.offsetHeight) {
       const shouldAddClass = current_scroll > scroll_pos
-      header.classList.toggle('-translate-y-20', shouldAddClass)
+      header.classList.toggle('-translate-y-32', shouldAddClass)
+      console.log('toggle')
     }
 
     scroll_time = setTimeout(() => {
