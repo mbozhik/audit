@@ -63,7 +63,7 @@ const servicesPageContent = {
           Object.keys(servicesPageContent.tools.items)
             .slice(2, 4) // Slice to get only the first two items
             .map((key) => (
-              <div class="flex flex-col items-center justify-center gap-5 px-5 sm:items-start py-7" class:list={grayBody}>
+              <div class="flex flex-col items-center justify-center gap-5 px-5 sm:items-start py-7 h-fit" class:list={grayBody}>
                 <h1 class="text-2xl">{servicesPageContent.tools.items[key].title}</h1>
                 <div class="space-y-3 text-left text-neutral-500">
                   {servicesPageContent.tools.items[key].text.map((text) => (
