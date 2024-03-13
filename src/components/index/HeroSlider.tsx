@@ -19,8 +19,8 @@ export const linksArray = {
     link: '/services/tax-optimization/',
   },
   4: {
-    text: 'Аналитика предприятия',
-    link: '/services/enterprise-analytics/',
+    text: 'Аудит предприятия',
+    link: '/services/enterprise-audit/',
   },
   5: {
     text: 'Консалтинг',
