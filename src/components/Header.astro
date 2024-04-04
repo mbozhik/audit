@@ -68,11 +68,9 @@ export const grayBody = 'rounded-lg border-[1px] border-neutral-700 bg-[#111] te
     }, 100)
   }
 
-  function isMobileDevice() {
-    return /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)
-  }
+  import {isMobile} from '@bozzhik/is-mobile'
 
-  if (isMobileDevice()) {
+  if (isMobile) {
     window.addEventListener('scroll', hideHeader)
   }
 </script>

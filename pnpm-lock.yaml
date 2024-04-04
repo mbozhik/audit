@@ -11,6 +11,9 @@ dependencies:
   '@astrojs/tailwind':
     specifier: ^5.0.2
     version: 5.1.0(astro@3.6.5)(tailwindcss@3.4.1)
+  '@bozzhik/is-mobile':
+    specifier: ^0.1.1
+    version: 0.1.1
   '@types/react':
     specifier: ^18.2.45
     version: 18.2.61
@@ -382,6 +385,10 @@ packages:
       '@babel/helper-string-parser': 7.23.4
       '@babel/helper-validator-identifier': 7.22.20
       to-fast-properties: 2.0.0
+    dev: false
+
+  /@bozzhik/is-mobile@0.1.1:
+    resolution: {integrity: sha512-b+BVf3EiYIiJFHD5ZBRBeGwBJ1Y0QZhyK0WpgNUofdzooBLZWAWuXaBr/OHyg7kxJOHhSu5sgRo07mudrJOMcQ==}
     dev: false
 
   /@esbuild/aix-ppc64@0.19.12:
