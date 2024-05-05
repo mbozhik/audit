@@ -1,4 +1,4 @@
-# Audit analitica landing page
+# Audit Analitica landing page
 
 ```bash
 git clone https://github.com/mbozhik/audit.git && cd audit && pnpm i && code .
