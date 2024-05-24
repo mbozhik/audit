@@ -1,5 +1,6 @@
 ---
 import Layout from '../../layouts/Layout.astro'
+import Consultation from '../../components/index/Consultation.astro'
 
 import {linksArray} from '../../components/index/HeroSlider'
 import {grayBody} from '../../components/Header.astro'
@@ -44,7 +45,7 @@ const servicesPageContent = {
       <h1 class={`px-5 py-2 w-fit mx-auto sm:mx-0 sm:ml-5 text-3xl sm:text-xl uppercase text-center sm:text-left sm:w-min ${grayBody}`}>{servicesPageContent.tools.title}</h1>
 
       <div class="grid grid-cols-2 sm:grid-cols-1 w-[80%] sm:w-[88.5%] mx-auto gap-x-32 xl:gap-x-14 gap-y-10 mt-10 text-center sm:text-sm">
-        {
+        <!-- {
           Object.keys(servicesPageContent.tools.items)
             .slice(0, 2) // Slice to get only the first two items
             .map((key) => (
@@ -57,7 +58,7 @@ const servicesPageContent = {
                 </div>
               </div>
             ))
-        }
+        } -->
 
         {
           Object.keys(servicesPageContent.tools.items)
@@ -74,6 +75,8 @@ const servicesPageContent = {
             ))
         }
       </div>
+
+      <Consultation classes="my-[15vh]" />
     </div>
   </section>
 </Layout>

@@ -1,5 +1,6 @@
 ---
 import Layout from '../../layouts/Layout.astro'
+import Consultation from '../../components/index/Consultation.astro'
 
 import {linksArray} from '../../components/index/HeroSlider'
 import {grayBody} from '../../components/Header.astro'
@@ -69,7 +70,7 @@ const servicesPageContent = {
       <div class="w-[50%] sm:w-[90%] sm:text-left mx-auto text-lg text-center sm:text-sm sm:mx-5 space-y-5">{servicesPageContent.description_text.map((text) => <p>{text}</p>)}</div>
     </div>
 
-    <div class="my-[15vh] flex flex-col gap-10">
+    <!-- <div class="my-[15vh] flex flex-col gap-10">
       <h1 class="px-4 py-2 mx-auto text-xl text-center text-bold sm:text-left sm:text-base sm:mx-5 w-fit" class:list={grayBody}>{servicesPageContent.table_title}</h1>
 
       <div class="p-5 w-[40%] sm:w-[90%] mx-auto sm:text-sm" class:list={grayBody}>
@@ -94,7 +95,9 @@ const servicesPageContent = {
       </div>
 
       <div class="w-[50%] sm:w-[90%] sm:text-left mx-auto text-center sm:text-sm sm:mx-5 text-neutral-500 space-y-5">{servicesPageContent.table_text.map((text) => <p>{text}</p>)}</div>
-    </div>
+    </div> -->
+
+    <Consultation classes="my-[15vh]" />
   </section>
 </Layout>
 
