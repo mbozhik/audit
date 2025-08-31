@@ -24,8 +24,8 @@ export const grayBody = 'rounded-lg border-[1px] border-neutral-700 bg-[#111] te
       Object.values(navLinks).map(({href, text}) => (
         <a {href} rel="nofollow" class="block overflow-hidden sm:hidden">
           <div class="h-[20px] hover:translate-y-[-20px] duration-300">
-            <span class="flex h-[20px] items-center">{text}</span>
-            <span class="flex h-[20px] items-center text-custom-yellow">{text}</span>
+            <span class="flex xl:min-w-12 sm:min-w-0 h-[20px] items-center">{text}</span>
+            <span class="flex xl:min-w-12 sm:min-w-0 h-[20px] items-center text-custom-yellow">{text}</span>
           </div>
         </a>
       ))
@@ -39,8 +39,8 @@ export const grayBody = 'rounded-lg border-[1px] border-neutral-700 bg-[#111] te
       Object.values(contactContent.links).map(({title, href}) => (
         <a {href} rel="nofollow" class="block overflow-hidden">
           <div class="h-[20px] sm:h-auto hover:translate-y-[-20px] duration-300">
-            <span class="flex h-[20px] items-center sm:items-baseline sm:h-auto text-neutral-500 ">{title}</span>
-            <span class="sm:hidden flex h-[20px] items-center text-custom-yellow">{title}</span>
+            <span class="flex xl:min-w-44 sm:min-w-0 h-[20px] items-center sm:items-baseline sm:h-auto text-neutral-500 ">{title}</span>
+            <span class="sm:hidden flex xl:min-w-44 sm:min-w-0 h-[20px] items-center text-custom-yellow">{title}</span>
           </div>
         </a>
       ))
