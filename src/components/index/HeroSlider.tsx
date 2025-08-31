@@ -7,24 +7,24 @@ import {Autoplay} from 'swiper/modules'
 
 export const linksArray = {
   1: {
-    text: 'Для малых компаний',
-    link: '/services/for-small-companies/',
+    text: 'Запуск бизнеса с нуля',
+    link: '/services/business-startup',
   },
   2: {
-    text: 'Бухгалтерский учет',
-    link: '/services/accounting/',
+    text: 'Бухгалтерские услуги',
+    link: '/services/accounting-services',
   },
   3: {
-    text: 'Оптимизация налогов',
-    link: '/services/tax-optimization/',
+    text: 'Финансово-экономические услуги',
+    link: '/services/financial-services/',
   },
   4: {
-    text: 'Аудит предприятия',
-    link: '/services/enterprise-audit/',
+    text: 'Юридические услуги',
+    link: '/services/legal-services/',
   },
   5: {
-    text: 'Консалтинг',
-    link: '/services/consulting/',
+    text: 'Услуги для НКО',
+    link: '/services/nko-services/',
   },
 }
 
