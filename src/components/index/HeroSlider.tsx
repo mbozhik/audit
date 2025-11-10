@@ -22,10 +22,6 @@ export const linksArray = {
     text: 'Юридические услуги',
     link: '/services/legal-services/',
   },
-  5: {
-    text: 'Услуги для НКО',
-    link: '/services/nko-services/',
-  },
 }
 
 export default function HeroSlider() {
